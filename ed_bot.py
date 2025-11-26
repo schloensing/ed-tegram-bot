@@ -22,3 +22,15 @@ def webhook():
 @app.route("/")
 def home():
     return "Ed ist aktiv!", 200
+from flask import render_template, jsonify
+
+@app.route("/chat", methods=["GET"])
+def chat_page():
+    return render_template("index.html")
+
+@app.route("/chat", methods=["POST"])
+def chat_api():
+    data = request.get_json()
+    user_msg = data.get("message", "")
+    reply = f"Ed: {user_msg}"  # Platzhalter; hier später echte Antwortlogik
+    return jsonify({"reply": reply})
