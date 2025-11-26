@@ -1,11 +1,13 @@
-from flask import render_template, jsonify, request
+from flask import Flask, request, render_template, jsonify
 import os
+import requests
 import openai
 from gtts import gTTS
 from io import BytesIO
 from base64 import b64encode
 
 app = Flask(__name__)
+
 
 
 openai.api_key = os.environ.get("OPENAI_API_KEY")
