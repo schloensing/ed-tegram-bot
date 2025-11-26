@@ -1,1 +1,1 @@
-web: python ed_bot.py
+web: gunicorn ed_bot:app
